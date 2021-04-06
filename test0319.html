@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="game_table" id="gameinfo_gl1">
+        <!-- 타이틀 -->
+        <div class="title_wrap">
+            <table class="data_table">
+                <tbody>
+                    <tr>
+                        <th class="time" rowspan="2" style="width: 87px;">
+                            <a
+                                href="javascript: get_gameinfo_body('global','gl1','2021','','03','19','','sc','game_date_desc')">시간</a>
+                        </th>
+                        <th class="sort" rowspan="2" style="width: 129px;"><a
+                                href="javascript:league_filter();">리그<span></span></a></th>
+                        <th rowspan="2" style="width: 311px;">홈팀 vs 원정팀</th>
+                        <th colspan="3" style="width: 169px;">해외배당률</th>
+                        <th rowspan="2" style="width: 53px;">결과</th>
+                        <th rowspan="2" style="width: 32px;">상세<br />보기</th>
+                    </tr>
+                    <tr class="rate">
+                        <th class="win">
+                            <img alt="승" src="https://storage.wisetoto.com/images/common/icon/text_win.jpg" />
+                            <a class="start"
+                                href="javascript:get_gameinfo_body('global','gl1','2021','','03','19','','sc','win_desc');"><span
+                                    class="blind">정렬</span></a>
+                        </th>
+                        <th class="draw">
+                            <img alt="무" src="https://storage.wisetoto.com/images/common/icon/text_draw.jpg" />
+                            <a class="start"
+                                href="javascript:get_gameinfo_body('global','gl1','2021','','03','19','','sc','draw_desc');"><span
+                                    class="blind">정렬</span></a>
+                        </th>
+                        <th class="defeat">
+                            <img alt="패" src="https://storage.wisetoto.com/images/common/icon/text_defeat.jpg" />
+                            <a class="start"
+                                href="javascript:get_gameinfo_body('global','gl1','2021','','03','19','','sc','lose_desc');"><span
+                                    class="blind">정렬</span></a>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- // 타이틀 -->
+        <div class="game_list type07">
+            <!-- 리그 필터 -->
+            <div class="league_filter">
+                <div class="filter_wrap">
+                    <div class="game_type">
+                        <h3>축구</h3>
+                        <div class="list_wrap">
+                            <ul class="filter_list">
+                                <li class="checkbox all checked" id="chk_li_sc_all">
+                                    <input checked="" id="sc_all" name="league_filter_sc"
+                                        onchange="set_filter_chk(this, 'sc')" type="checkbox" value="all" />
+                                    <label for="sc_all"><em></em>축구 전체</label>
+                                </li>
+                                <li class="checkbox checked" id="chk_li_25">
+                                    <input checked="" id="25" name="league_filter_sc"
+                                        onchange="set_filter_chk(this, 'sc')" type="checkbox" value="25" />
+                                    <label for="25"><em></em>유로파리그</label>
+                                </li>
+                                <li class="checkbox checked" id="chk_li_140">
+                                    <input checked="" id="140" name="league_filter_sc"
+                                        onchange="set_filter_chk(this, 'sc')" type="checkbox" value="140" />
+                                    <label for="140"><em></em>멕시코 리그</label>
+                                </li>
+                                <li class="checkbox checked" id="chk_li_81">
+                                    <input checked="" id="81" name="league_filter_sc"
+                                        onchange="set_filter_chk(this, 'sc')" type="checkbox" value="81" />
+                                    <label for="81"><em></em>호주 A리그</label>
+                                </li>
+                                <li class="checkbox checked" id="chk_li_117">
+                                    <input checked="" id="117" name="league_filter_sc"
+                                        onchange="set_filter_chk(this, 'sc')" type="checkbox" value="117" />
+                                    <label for="117"><em></em>터키슈퍼리그</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <input name="league_filter_sc_before" type="hidden" value="all" />
+                    </div>
+                    <div class="game_type">
+                        <h3>야구</h3>
+                        <div class="list_wrap">
+                            <div class="filter_list no_match">
+                                <div><input disabled="" id="no_match01" name="no_match01" type="checkbox" /><label
+                                        for="no_match01">경기 없음</label></div>
+                            </div>
+                        </div>
+                        <input name="league_filter_bs_before" type="hidden" value="all" />
+                    </div>
+                    <div class="game_type">
+                        <h3>농구</h3>
+                        <div class="list_wrap">
+                            <div class="filter_list no_match">
+                                <div><input disabled="" id="no_match01" name="no_match01" type="checkbox" /><label
+                                        for="no_match01">경기 없음</label></div>
+                            </div>
+                        </div>
+                        <input name="league_filter_bk_before" type="hidden" value="all" />
+                    </div>
+                    <div class="game_type">
+                        <h3>배구</h3>
+                        <div class="list_wrap">
+                            <div class="filter_list no_match">
+                                <div><input disabled="" id="no_match01" name="no_match01" type="checkbox" /><label
+                                        for="no_match01">경기 없음</label></div>
+                            </div>
+                        </div>
+                        <input name="league_filter_vl_before" type="hidden" value="all" />
+                    </div>
+                    <div class="game_type">
+                        <h3>풋볼</h3>
+                        <div class="list_wrap">
+                            <div class="filter_list no_match">
+                                <div><input disabled="" id="no_match01" name="no_match01" type="checkbox" /><label
+                                        for="no_match01">경기 없음</label></div>
+                            </div>
+                        </div>
+                        <input name="league_filter_ft_before" type="hidden" value="all" />
+                    </div>
+                    <div class="game_type">
+                        <h3>하키</h3>
+                        <div class="list_wrap">
+                            <div class="filter_list no_match">
+                                <div><input disabled="" id="no_match01" name="no_match01" type="checkbox" /><label
+                                        for="no_match01">경기 없음</label></div>
+                            </div>
+                        </div>
+                        <input name="league_filter_hk_before" type="hidden" value="all" />
+                    </div>
+                    <!-- 리그필터 닫기 -->
+                    <div class="bottom_area">
+                        <a class="btn_close" href="javascript:league_filter();">닫기</a>
+                    </div>
+                    <!--// 리그필터 닫기 -->
+                </div>
+            </div>
+            <!-- // 리그 필터 -->
+            <ul class="data_list">
+                <!-- 1 -->
+                <li>
+                    <ul class="table_list">
+                        <li class="time">02:55</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 win"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=670&amp;away_team_info_seq=63&amp;game_date=2021-03-19 02:55:00&amp;target=h','','1023','620','no','yes');">디나모자그레브</a><span
+                                    class="score">2</span></span> <em>:</em>
+                            <span class="team02 defeat"><span class="score">0</span><a
+                                    style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=670&amp;away_team_info_seq=63&amp;game_date=2021-03-19 02:55:00&amp;target=a','','1023','620','no','yes');">토트넘</a></span>
+                        </li>
+                        <li class="rate win"><span class="highlight"><a style="text-decoration:none">3.80</a></span>
+                        </li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.60</a></span></li>
+                        <li class="rate defeat"><span class=""><a style="text-decoration:none">1.91</a></span></li>
+                        <li class="result"><span class="tag x_medium type04">홈승</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272305_"
+                                onclick="get_gameinfo_detail('272305','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272305_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272305_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li class="even">
+                    <ul class="table_list">
+                        <li class="time">02:55</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 win"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=1779&amp;away_team_info_seq=1916&amp;game_date=2021-03-19 02:55:00&amp;target=h','','1023','620','no','yes');">몰데</a><span
+                                    class="score">2</span></span> <em>:</em>
+                            <span class="team02 defeat"><span class="score">1</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=1779&amp;away_team_info_seq=1916&amp;game_date=2021-03-19 02:55:00&amp;target=a','','1023','620','no','yes');">그라나다</a><a
+                                    style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class="highlight"><a style="text-decoration:none">3.30</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.25</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate defeat"><span class=""><a style="text-decoration:none">2.20</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="result"><span class="tag x_medium type04">홈승</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272306_"
+                                onclick="get_gameinfo_detail('272306','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272306_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272306_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li>
+                    <ul class="table_list">
+                        <li class="time">02:55</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=438&amp;away_team_info_seq=123&amp;game_date=2021-03-19 02:55:00&amp;target=h','','1023','620','no','yes');">샤흐타르</a><span
+                                    class="score">1</span></span> <em>:</em>
+                            <span class="team02 win"><span class="score">2</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=438&amp;away_team_info_seq=123&amp;game_date=2021-03-19 02:55:00&amp;target=a','','1023','620','no','yes');">AS
+                                    로마</a><a style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class=""><a style="text-decoration:none">2.75</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.60</a></span></li>
+                        <li class="rate defeat"><span class="highlight"><a style="text-decoration:none">2.38</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="result"><span class="tag x_medium type01">홈패</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272307_"
+                                onclick="get_gameinfo_detail('272307','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272307_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272307_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li class="even">
+                    <ul class="table_list">
+                        <li class="time">02:55</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=57&amp;away_team_info_seq=429&amp;game_date=2021-03-19 02:55:00&amp;target=h','','1023','620','no','yes');">아스널</a><span
+                                    class="score">0</span></span> <em>:</em>
+                            <span class="team02 win"><span class="score">1</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=57&amp;away_team_info_seq=429&amp;game_date=2021-03-19 02:55:00&amp;target=a','','1023','620','no','yes');">올림피아코스</a><a
+                                    style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class=""><a style="text-decoration:none">1.40</a></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">4.75</a></span></li>
+                        <li class="rate defeat"><span class="highlight"><a style="text-decoration:none">7.50</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="result"><span class="tag x_medium type01">홈패</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272308_"
+                                onclick="get_gameinfo_detail('272308','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272308_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272308_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li>
+                    <ul class="table_list">
+                        <li class="time">05:00</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=540&amp;away_team_info_seq=545&amp;game_date=2021-03-19 05:00:00&amp;target=h','','1023','620','no','yes');">레인저스</a><span
+                                    class="score">0</span></span> <em>:</em>
+                            <span class="team02 win"><span class="score">2</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=540&amp;away_team_info_seq=545&amp;game_date=2021-03-19 05:00:00&amp;target=a','','1023','620','no','yes');">슬라비아
+                                    프라하</a><a style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class=""><a style="text-decoration:none">2.10</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.40</a></span></li>
+                        <li class="rate defeat"><span class="highlight"><a style="text-decoration:none">3.50</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="result"><span class="tag x_medium type01">홈패</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272309_"
+                                onclick="get_gameinfo_detail('272309','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272309_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272309_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li class="even">
+                    <ul class="table_list">
+                        <li class="time">05:00</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=121&amp;away_team_info_seq=50&amp;game_date=2021-03-19 05:00:00&amp;target=h','','1023','620','no','yes');">AC
+                                    밀란</a><span class="score">0</span></span> <em>:</em>
+                            <span class="team02 win"><span class="score">1</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=121&amp;away_team_info_seq=50&amp;game_date=2021-03-19 05:00:00&amp;target=a','','1023','620','no','yes');">맨체스터Utd</a><a
+                                    style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class=""><a style="text-decoration:none">3.50</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.40</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate defeat"><span class="highlight"><a style="text-decoration:none">2.05</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="result"><span class="tag x_medium type01">홈패</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272310_"
+                                onclick="get_gameinfo_detail('272310','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272310_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272310_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li>
+                    <ul class="table_list">
+                        <li class="time">05:00</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=877&amp;away_team_info_seq=441&amp;game_date=2021-03-19 05:00:00&amp;target=h','','1023','620','no','yes');">영보이스</a><span
+                                    class="score">0</span></span> <em>:</em>
+                            <span class="team02 win"><span class="score">2</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=877&amp;away_team_info_seq=441&amp;game_date=2021-03-19 05:00:00&amp;target=a','','1023','620','no','yes');">아약스</a><a
+                                    style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class=""><a style="text-decoration:none">3.00</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.80</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate defeat"><span class="highlight"><a style="text-decoration:none">2.20</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="result"><span class="tag x_medium type01">홈패</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272311_"
+                                onclick="get_gameinfo_detail('272311','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272311_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272311_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li class="even">
+                    <ul class="table_list">
+                        <li class="time">05:00</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />유로파리그</li>
+                        <li class="team">
+                            <span class="team01 win"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=80&amp;away_team_info_seq=427&amp;game_date=2021-03-19 05:00:00&amp;target=h','','1023','620','no','yes');">비야레알</a><span
+                                    class="score">2</span></span> <em>:</em>
+                            <span class="team02 defeat"><span class="score">0</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=80&amp;away_team_info_seq=427&amp;game_date=2021-03-19 05:00:00&amp;target=a','','1023','620','no','yes');">디나모키예프</a><a
+                                    style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class="highlight"><a style="text-decoration:none">1.45</a><em
+                                    class="down">↓</em></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">4.00</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="rate defeat"><span class=""><a style="text-decoration:none">8.00</a><em
+                                    class="up">↑</em></span></li>
+                        <li class="result"><span class="tag x_medium type04">홈승</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db272312_"
+                                onclick="get_gameinfo_detail('272312','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','272312_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di272312_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li>
+                    <ul class="table_list">
+                        <li class="time">11:00</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />멕시코 리그</li>
+                        <li class="team">
+                            <span class="team01 win"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=1185&amp;away_team_info_seq=1658&amp;game_date=2021-03-19 11:00:00&amp;target=h','','1023','620','no','yes');">파추카</a><span
+                                    class="score">1</span></span> <em>:</em>
+                            <span class="team02 defeat"><span class="score">0</span><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=1185&amp;away_team_info_seq=1658&amp;game_date=2021-03-19 11:00:00&amp;target=a','','1023','620','no','yes');">티그레스
+                                    UANL</a><a style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class="highlight"><a style="text-decoration:none">3.40</a></span>
+                        </li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.20</a></span></li>
+                        <li class="rate defeat"><span class=""><a style="text-decoration:none">2.20</a></span></li>
+                        <li class="result"><span class="tag x_medium type04">홈승</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db270977_"
+                                onclick="get_gameinfo_detail('270977','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','270977_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di270977_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li class="even">
+                    <ul class="table_list">
+                        <li class="time">17:05</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />호주 A리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=2346&amp;away_team_info_seq=1227&amp;game_date=2021-03-19 17:05:00&amp;target=h','','1023','620','no','yes');">웨스턴
+                                    시드니</a></span> <em>:</em>
+                            <span class="team02 defeat"><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=2346&amp;away_team_info_seq=1227&amp;game_date=2021-03-19 17:05:00&amp;target=a','','1023','620','no','yes');">퍼스
+                                    글로리 FC</a><a style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class="">-</span></li>
+                        <li class="rate draw"><span class="">-</span></li>
+                        <li class="rate defeat"><span class="">-</span></li>
+                        <li class="result"><span class="tag x_medium type02">취소</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db274088_"
+                                onclick="get_gameinfo_detail('274088','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','274088_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di274088_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+                <!-- 1 -->
+                <li>
+                    <ul class="table_list">
+                        <li class="time">22:00</li>
+                        <li class="league"><img alt=""
+                                src="https://storage.wisetoto.com/images/common/icon/icn_sc.png" />터키슈퍼리그</li>
+                        <li class="team">
+                            <span class="team01 defeat"><a style="text-decoration:none"></a><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=4119&amp;away_team_info_seq=950&amp;game_date=2021-03-19 22:00:00&amp;target=h','','1023','620','no','yes');">카라귀흐르흐</a></span>
+                            <em>:</em>
+                            <span class="team02 defeat"><a class="stu"
+                                    href="javascript:popupOpen_D('/gameinfo/team_record_fo.htm?game_category=pt2&amp;home_team_info_seq=4119&amp;away_team_info_seq=950&amp;game_date=2021-03-19 22:00:00&amp;target=a','','1023','620','no','yes');">카이세리스포르</a><a
+                                    style="text-decoration:none"></a></span> </li>
+                        <li class="rate win"><span class=""><a style="text-decoration:none">1.83</a></span></li>
+                        <li class="rate draw"><span class=""><a style="text-decoration:none">3.60</a></span></li>
+                        <li class="rate defeat"><span class=""><a style="text-decoration:none">4.20</a></span></li>
+                        <li class="result"><span class="tag x_medium type06">경기전</span></li>
+                        <li class="detail">
+                            <a class="btn_detail" id="db264936_"
+                                onclick="get_gameinfo_detail('264936','','gl1', 'global', '', '', event);ChangeUrl('와이즈토토', getParamChangeUrl('focus','264936_'));"
+                                style="cursor: pointer;">
+                                <span class="blind">상세보기</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="detail_view active" id="di264936_" style="display: none;"></div>
+                </li>
+                <!-- // 1 -->
+            </ul>
+        </div>
+        <p class="notice_text">※ 본 정보는 공식집계 결과가 아닌 가집계 결과입니다. 공식 결과는 해당 리그 홈페이지에서 최종 확인하시기 바랍니다.</p>
+    </div>
+</body>
+
+</html>

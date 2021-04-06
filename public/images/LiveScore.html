@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>SPO LINE HOME</title>
+  <link rel="stylesheet" href="css/LiveScore.css">
+</head>
+
+<body>
+  <!--전체를 감싸는 태그 -->
+  <div class="page-wrapper">
+    <!-- 헤더 -->
+    <div id="top">
+      <div class="hamberger">
+        <input type="checkbox" id="menuicon">
+        <label for="menuicon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div class="sidebar">
+        </div>
+      </div>
+      <div id="main-banner">
+
+        <h1 class="master-title">라이브 스코어</h1>
+
+      </div>
+      <div class="favorite">
+        <div><a href="#"><img src="imgs/favorite.png" width="70px"></a>
+        </div>
+      </div>
+      <div id="search">
+        <div><a href="#"><img src="imgs/search.png" width="70px"></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 네비게이션 -->
+    <nav id="main-navigation">
+      <div class="pull-left">
+        <div class="outer-menu">
+          <li class="outer-menu-item">
+            <span class="menu-title"><a href="LiveScore.html">Today</a></span>
+            <ul class="inner-menu">
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+            </ul>
+          </li>
+          <li class="outer-menu-item">
+            <span class="menu-title">축구</span>
+            <ul class="inner-menu">
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+            </ul>
+          </li>
+          <li class="outer-menu-item">
+            <span class="menu-title">농구</span>
+            <ul class="inner-menu">
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+            </ul>
+          </li>
+          <li class="outer-menu-item">
+            <span class="menu-title">야구</span>
+            <ul class="inner-menu">
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+              <li class="inner-menu-item"><a href="#">데이터</a></li>
+            </ul>
+          </li>
+        </div>
+      </div>
+
+
+      <!--
+      <div class="pull-right">
+        <div class="search-bar">
+          <form>
+            <input type="text" class="input-search" />
+            <input type="submit" class="input-search-submit" value="검색" />
+          </form>
+        </div>
+      </div>
+    -->
+    </nav>
+    <div class="poster-div">
+      광 고
+    </div>
+    <br>
+
+    <div id="date-live">
+      <div class="calendar">
+        <a href="#"><img src="imgs/calendar.png" height="40px"></a>
+      </div>
+      <a href="#">
+        <div class="date-right">
+          대회
+        </div>
+      </a>
+      <div class="date-today">
+        <h3 class="date-today-time">00:00</h3>
+      </div>
+
+    </div>
+  </div>
+  <!-- 본문 제목-->
+  <h2>Today League</h2>
+  <div class="game-page" id="">
+    
+    <!-- 본문  영역 -->
+    <div id="content" class="page-wrapper">
+      
+        <!-- 스코어 탑-->
+        <div id="score-top">
+          <div id="plus" class="score-top-content">
+            <a title="더보기" class="btn-plus" href="#">
+              <img src="imgs/plus.png" height="20px"></a>
+          </div>
+          <div class="score-top-content">더 프리미어 리그</div>
+          <div class="close">
+            <button class="contents_close" onclick="fn_spread('score-table');">
+              <a title="접기" class="btn-close" href="#">
+                <img src="imgs/close.png" height="15px">
+              </a>
+            </button>
+          </div>
+        </div>
+        
+
+        <!--스코어 테이블-->
+        <div class="all_game" id="score-table" style="display: block;">
+
+          <div class="team_inform" id="score-table">
+            <div  id="team_img">
+              <img src="imgs/tottenham.jpeg" height="58px"/>
+            </div>
+            <div class="inform">
+              <a href="DividendFlow.html">
+                <div class="time">20:31</div>
+                <div class="team-name"><div class="team-home">토트넘</div>&nbsp&nbsp;<div class="team-away">리버풀</div></div>
+                <div>2.73 <img src="imgs/down.png" height="15px" /> 3.57 <img src="imgs/up.png" height="15px" /> 2.46<img src="imgs/up.png" height="15px" /></div>
+              </a>
+            </div>
+            <div id="team_img">
+              <img src="imgs/liverpool.jpeg" height="58px"/>
+            </div>
+          </div>
+
+          <script>
+            for(let i=0; i<10; i++){
+              document.write("<div class='team_inform' id='score-table'> <div  id='team_img'> <img src='imgs/tottenham.jpeg' height='58px'/> </div> <div class='inform'> <a href='DividendFlow.html'> 20:30<br> 토트넘&nbsp;&nbsp;리버풀 <br>2.73 <img src='imgs/down.png' height='15px' /> 3.57 <img src='imgs/up.png' height ='15px' /> 2.46<img src='imgs/up.png' height='15px' /> </a> </div> <div id='team_img'> <img src='imgs/liverpool.jpeg' height='58px'/> </div> </div>");
+            }
+          </script>
+
+        </div>
+
+        <!-- 본문 우측 영역 -->
+        <!--<aside id="main-aside"></aside>-->
+
+        <script>
+          function fn_spread(id){
+            var getID = document.getElementById(id);
+            getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
+          }
+        </script>
+
+    </div>
+    <h2>.</h2>
+    <!-- 본문  영역 -->
+    <div id="content" class="page-wrapper">
+      
+      <!-- 스코어 탑-->
+      <div id="score-top">
+        <div id="plus" class="score-top-content">
+          <a title="더보기" class="btn-plus" href="#">
+            <img src="imgs/plus.png" height="20px"></a>
+        </div>
+        <div class="score-top-content">더 프리미어 리그</div>
+        <div class="close">
+          <button class="contents_close" onclick="fn_spread('score-table');">
+            <a title="접기" class="btn-close" href="#">
+              <img src="imgs/close.png" height="15px">
+            </a>
+          </button>
+        </div>
+      </div>
+      
+
+      <!--스코어 테이블-->
+      <div class="all_game" id="score-table" style="display: block;">
+
+        <div class="team_inform" id="score-table">
+          <div  id="team_img">
+            <img src="imgs/tottenham.jpeg" height="58px"/>
+          </div>
+          <div class="inform">
+            <a href="DividendFlow.html">
+              20:30<br> 
+              토트넘&nbsp;&nbsp;리버풀<br>
+              2.73 <img src="imgs/down.png" height="15px" /> 3.57 <img src="imgs/up.png" height="15px" /> 2.46<img src="imgs/up.png" height="15px" />
+            </a>
+          </div>
+          <div id="team_img">
+            <img src="imgs/liverpool.jpeg" height="58px"/>
+          </div>
+        </div>
+
+        <script>
+          for(let i=0; i<10; i++){
+            document.write("<div class='team_inform' id='score-table'> <div  id='team_img'> <img src='imgs/tottenham.jpeg' height='58px'/> </div> <div class='inform'> <a href='DividendFlow.html'> 20:30<br> 토트넘&nbsp;&nbsp;리버풀 <br>2.73 <img src='imgs/down.png' height='15px' /> 3.57 <img src='imgs/up.png' height ='15px' /> 2.46<img src='imgs/up.png' height='15px' /> </a> </div> <div id='team_img'> <img src='imgs/liverpool.jpeg' height='58px'/> </div> </div>");
+          }
+        </script>
+
+      </div>
+
+      <!-- 본문 우측 영역 -->
+      <!--<aside id="main-aside"></aside>-->
+
+      <script>
+        function fn_spread(id){
+          var getID = document.getElementById(id);
+          getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
+        }
+      </script>
+
+    </div>
+
+  </div>
+
+  <!-- 하단  -->
+  <div class="bottom_bar">
+    <a href="LiveScore.html" class="bottom_button">
+      <div class="center"><img src="imgs/soccerball.jpg" width="60px" /><br>라이브스코어</div>
+    </a>
+    <a href="Proto.html" class="bottom_button">
+      <div class="center"><img src="imgs/soccerball.jpg" width="60px" /><br>프로토</div>
+    </a>
+    <a href="ElectiveGame.html" class="bottom_button">
+      <div class="center"><img src="imgs/soccerball.jpg" width="60px" /><br>선택경기</div>
+    </a>
+    <a href="#" class="bottom_button">
+      <div class="center"><img src="imgs/soccerball.jpg" width="60px" /><br>커뮤니티</div>
+    </a>
+  </div>
+  <script src="js/clock.js"></script>
+</body>
+
+</html>

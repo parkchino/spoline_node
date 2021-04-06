@@ -1,0 +1,330 @@
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Welcome to #{title}
+doctype html
+head
+  meta(charset='utf-8')
+  title 스포라인 - #{title}
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='./stylesheets/style.css')
+  link(rel='stylesheet' href='http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css' type='text/css')
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+  script(src='http://code.jquery.com/ui/1.8.18/jquery-ui.min.js')
+body
+// 전체를 감싸는 태그
+// 헤더 page-wrapper
+//- <i class="fas fa-search"></i>
+.page-wrapper
+  #top
+    .hamberger
+      input#menuicon(type='checkbox')
+      label(for='menuicon')
+        span
+        span
+        span
+      .sidebar
+    #main-banner
+      h1.master-title
+        a(href='/') #{title}
+    .favorite
+      div
+        a(href='#')
+          img(src='images/favorite.png' width='70px')
+    #search
+      div
+        a(href='#')
+          img(src='images/search.png' width='70px')
+  // 네비게이션
+  nav#main-navigation
+    .pull-left
+      .outer-menu
+        li.outer-menu-item
+          span.menu-title
+            a(href='/') Today
+          ul.inner-menu
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+        li.outer-menu-item
+          span.menu-title &#xCD95;&#xAD6C;
+          ul.inner-menu
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+        li.outer-menu-item
+          span.menu-title &#xB18D;&#xAD6C;
+          ul.inner-menu
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+        li.outer-menu-item
+          span.menu-title &#xC57C;&#xAD6C;
+          ul.inner-menu
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+            li.inner-menu-item
+              a(href='#') &#xB370;&#xC774;&#xD130;
+    //
+      <div class="pull-right">
+      <div class="search-bar">
+      <form>
+      <input type="text" class="input-search" />
+      <input type="submit" class="input-search-submit" value="검색" />
+      </form>
+      </div>
+      </div>
+  .poster-div
+    | #{adv}
+  br
+  #date-live
+    form.calendar(action='/' method="post") 
+      p
+        |날짜: 
+        input#datepicker(type='text' name='selectedDate' autocomplete='off')
+        input(type="submit" value='조회')
+
+
+    a(href='#')
+      .date-right
+        | 대회
+
+    .date-today
+      h3.date-today-time
+        | 00:00
+
+  nav#main-navigation
+    .pull-left
+      .outer-menu
+        li.outer-menu-item
+          span.menu-title
+            a(href='/schedule/premier') 프리미어리그
+        li.outer-menu-item
+          span.menu-title
+            a(href='/schedule/laliga') 라리가
+        li.outer-menu-item
+          span.menu-title
+            a(href='/schedule/bundesliga') 분데스리가
+        li.outer-menu-item
+          span.menu-title
+            a(href='/schedule/seriaA') 세리에A
+            
+  // 본문 제목
+
+    // 본문  영역
+
+//- .content
+//-   .selectedTime(style="font-size:20px;font-weight:bold") #{event_day}
+//-   -for(var y = 0; y <leagueNum; y++)
+//-     #content.page-wrapper
+//-       // 스코어 탑
+//-       #score-top
+//-         #plus.score-top-content
+//-           a.btn-plus(title='더보기' href='#')
+//-             img(src='images/plus.png' height='20px')
+//-         .score-top-content 
+//-           p #{leagueName[y]}
+//-         .close
+//-           button.contents_close(onclick="fn_spread('score-table');")
+//-             a.btn-close(title='접기' href='#')
+//-               img(src='images/close.png' height='15px')
+//-       // 스코어 테이블
+//-       #score-table.all_game(style='display: block;')
+//-         each match in matchList
+//-           -if (match.league_name === leagueName[y])
+//-             #score-table.team_inform
+//-                 #team_img
+//-                     img(src=`images/${match.hometeam}.jpg` height='58px')
+//-                 #hometeamscore.score #{match.hometeam_score}
+//-                 .inform
+//-                   a(href='/dividendFlow')
+//-                     .result(style='font-weight:bold') #{match.match_result}
+//-                     | #{match.event_time}
+//-                     br
+//-                     | #{match.hometeam}&nbsp;&nbsp;#{match.awayteam} 
+//-                     br
+//-                     | 2.73 
+//-                     img(src='images/down.png' height='15px')
+//-                     | 3.57 
+//-                     img(src='images/up.png' height='15px')
+//-                     | 2.47
+//-                     img(src='images/up.png' height='15px')
+//-                 #awayteamscore.score #{match.awayteam_score}
+//-                 #team_img
+//-                   img(src=`images/${match.awayteam}.jpg` height='58px')      
+//-     br
+//-     a(href='before' + link + 'after')
+//-     a(href=`before${link}after`) 
+
+        
+//-     // 본문 우측 영역
+//-     // <aside id="main-aside"></aside>
+//-     script.
+//-       function fn_spread(params){
+//-       var getID = document.getElementById(params);
+//-       getID.style.display=(getID.style.display=='block') ? 'none' : 'block';    
+//-       }
+//-   - if (matchLength == '0')
+//-       h4 해당 날짜에 경기가 존재하지 않습니다.
+
+  //- br
+  //- // 본문  영역
+  //- #content.page-wrapper
+  //-   // 스코어 탑
+  //-   #score-top
+  //-     #plus.score-top-content
+  //-       a.btn-plus(title='더보기' href='#')
+  //-         img(src='images/plus.png' height='20px')
+  //-     .score-top-content #{tit_league}
+  //-     .close
+  //-       button.contents_close(onclick="fn_spread('score-table');")
+  //-         a.btn-close(title='접기' href='#')
+  //-           img(src='images/close.png' height='15px')
+  //-   // 스코어 테이블
+  //-   #score-table.all_game(style='display: block;')
+  //-     #score-table.team_inform
+  //-       #team_img
+  //-         img(src='images/tottenham.jpeg' height='58px')
+  //-       .inform
+  //-         a(href='../DividendFlow.html')
+  //-           | 20:30
+  //-           br
+  //-           |               &#xD1A0;&#xD2B8;&#xB118;&nbsp;&nbsp;&#xB9AC;&#xBC84;&#xD480;
+  //-           br
+  //-           |               2.73 
+  //-           img(src='images/down.png' height='15px')
+  //-           |  3.57 
+  //-           img(src='images/up.png' height='15px')
+  //-           |  2.46
+  //-           img(src='images/up.png' height='15px')
+  //-       #team_img
+  //-         img(src='images/liverpool.jpeg' height='58px')
+  //-     script.
+  //-       for(let i=0; i<10; i++){
+  //-       document.write("<div class='team_inform' id='score-table'> <div  id='team_img'> <img src='images/tottenham.jpeg' height='58px'/> </div> <div class='inform'> <a href='DividendFlow.html'> 20:30<br> 토트넘&nbsp;&nbsp;리버풀 <br>2.73 <img src='images/down.png' height='15px' /> 3.57 <img src='images/up.png' height ='15px' /> 2.46<img src='images/up.png' height='15px' /> </a> </div> <div id='team_img'> <img src='images/liverpool.jpeg' height='58px'/> </div> </div>");
+  //-       }
+  //-   script.
+  //-     function fn_spread(id){
+  //-     var getID = document.getElementById(id);
+  //-     getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
+  //-     }
+  //- br
+  //- #content.page-wrapper
+  //-   // 스코어 탑
+  //-   #score-top
+  //-     #plus.score-top-content
+  //-       a.btn-plus(title='더보기' href='#')
+  //-         img(src='images/plus.png' height='20px')
+  //-     .score-top-content &#xB354; &#xD504;&#xB9AC;&#xBBF8;&#xC5B4; &#xB9AC;&#xADF8;
+  //-     .close
+  //-       button.contents_close(onclick="fn_spread('score-table');")
+  //-         a.btn-close(title='접기' href='#')
+  //-           img(src='images/close.png' height='15px')
+  //-   // 스코어 테이블
+  //-   #score-table.all_game(style='display: block;')
+  //-     #score-table.team_inform
+  //-       #team_img
+  //-         img(src='images/tottenham.jpeg' height='58px')
+  //-       .inform
+  //-         a(href='../DividendFlow.html')
+  //-           | 20:30
+  //-           br
+  //-           |               &#xD1A0;&#xD2B8;&#xB118;&nbsp;&nbsp;&#xB9AC;&#xBC84;&#xD480;
+  //-           br
+  //-           |               2.73 
+  //-           img(src='images/down.png' height='15px')
+  //-           |  3.57 
+  //-           img(src='images/up.png' height='15px')
+  //-           |  2.46
+  //-           img(src='images/up.png' height='15px')
+  //-       #team_img
+  //-         img(src='images/liverpool.jpeg' height='58px')
+  //-     script.
+  //-       for(let i=0; i<10; i++){
+  //-       document.write("<div class='team_inform' id='score-table'> <div  id='team_img'> <img src='images/tottenham.jpeg' height='58px'/> </div> <div class='inform'> <a href='DividendFlow.html'> 20:30<br> 토트넘&nbsp;&nbsp;리버풀 <br>2.73 <img src='images/down.png' height='15px' /> 3.57 <img src='images/up.png' height ='15px' /> 2.46<img src='images/up.png' height='15px' /> </a> </div> <div id='team_img'> <img src='images/liverpool.jpeg' height='58px'/> </div> </div>");
+  //-       }
+  //-   script.
+  //-     function fn_spread(id){
+  //-     var getID = document.getElementById(id);
+  //-     getID.style.display=(getID.style.display=='block') ? 'none' : 'block';
+  //-     }
+  //- - results.forEach((item, i) => {
+  //-       section 
+  //-         h3 #{item.title}
+  //-         p= item.contents
+  //-   -});
+
+
+  form(id="schedule", action="/schedule", method="get") 
+    p 리그선택
+    ul 
+      li 
+        label(for="league")|프리미어리그
+        input(type="checkbox", name="league",value="프리미어리그")  
+    button(type="submit")|submiT 
+  // 하단
+.bottom_bar
+  a.bottom_button(href='/')
+    .center
+      img(src='images/soccerball.jpg' width='60px')
+      br
+      | &#xB77C;&#xC774;&#xBE0C;&#xC2A4;&#xCF54;&#xC5B4;
+  a.bottom_button(href='/Proto')
+    .center
+      img(src='images/soccerball.jpg' width='60px')
+      br
+      | &#xD504;&#xB85C;&#xD1A0;
+  a.bottom_button(href='/DividendFlow')
+    .center
+      img(src='images/soccerball.jpg' width='60px')
+      br
+      | &#xC120;&#xD0DD;&#xACBD;&#xAE30;
+  a.bottom_button(href='#')
+    .center
+      img(src='images/soccerball.jpg' width='60px')
+      br
+      | &#xCEE4;&#xBBA4;&#xB2C8;&#xD2F0;
+script(src="./javascripts/clock.js") ) 
+script(src='https://kit.fontawesome.com/be872d4e0f.js' crossorigin='anonymous')
+
+script. 
+  $(function() {
+    $("#datepicker").datepicker({
+      minDate: new Date('2021-01-01'),
+      maxDate: new Date('2021-12-31'),
+      showOn: 'button',
+      buttonImageOnly: true,
+      buttonImage: 'images/calendar.png',
+      buttonText: "Select date",
+      changeMonth: true, 
+      changeYear: true,
+      dateFormat: "yy/mm/dd",
+      nextText: '다음 달',
+      prevText: '이전 달', 
+      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
+      monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+      monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+      onSelect: function (dateText,inst) { 
+        var date = $.datepicker.formatDate("mm/dd",$("#datepicker").datepicker("getDate")); 
+      }
+    });
+    //- 날짜 placeholder 표시
+    //- $('#datepicker').datepicker('setDate', 'date');
+  });
+
+

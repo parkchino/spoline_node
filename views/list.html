@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+td {
+ border: 2px double #FF5E00;
+ width: 100px;
+ font-family: "휴먼매직체";
+ text-align: center;
+}
+
+#a {
+ background: #FFFFB4;
+ text-align: center;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("#memberlist").click(memberListFunc);
+
+ });
+
+ function memberListFunc() {
+  memberlistCon.innerHTML = "";
+  $.ajax({
+   url : "member/listMember.do",
+   dataType : "json",
+   success : function(data) {
+    $("#memberlistCon").html("");
+    //버튼클릭시 html초기화 시켜줌
+    $("<table/>", {
+     id : "TbTag"
+    }).appendTo("#memberlistCon");
+    //div에 테이블 태그 생성
+    
+    title = [ "id", "pw", "addr", "tel" ];
+    
+    var item=[];
+    
+    $.each(data.list, function(index) {
+     item.push("<td id=a>" + title[index] + "</td>");
+    }); //타이틀 달아주기 위해 따로 td 태그로 생성
+    
+    $("<tr/>", {
+     html : item[0] + item[1] + item[2] + item[3]
+    }).appendTo("table"); 
+    //타이틀 테이블에 추가
+
+    $.each(data.list, function(index2, member2) {
+     //data -> list 배열     data.list -> list 안에 있는 배열들 여러개
+     //data.list의 index2 는 데이터 갯수만큼(id1~id10까지 있으면 index는0~9까지)
+     //member2는 해당 인덱스의 데이터들(0번인덱스에는 id1,pw1,addr1,tel1->순서는 뒤죽박죽 되있음)
+      var cnt = 0; 
+     //타이틀에 맞는 데이터 얻어오기 위해 title배열의 인덱스값 초기화
+     var items = []; 
+     $.each(member2, function(index3) {
+      var k=title[cnt++];
+      //title[0]-->id,
+      //title[1]-->pw,
+      //title[2]-->addr,
+      //title[3]-->tel
+      items.push("<td>" +member2[k]+ "</td>");
+      //뒤죽박죽인 데이터를 순서에 맞게 td태그로 생성
+     });
+    $("<tr/>", {
+      html : items[0] + items[1] + items[2] + items[3]
+     }).appendTo("#TbTag");
+    });
+   }
+  });
+ }
+</script>
+
+</head>
+<body>
+ welcome to SEOUL IT Education Center~!!!
+ <br />
+ <a href="member/loginForm.html">로그인</a>
+ <a href="#" id="memberlist">회원리스트</a>
+ <div id="memberlistCon"></div>
+</body>
+</html>
+
+
+
+출처: https://gooya17.tistory.com/entry/회원리스트-클릭시-db에서-테이블-가져와서-원하는-인덱스-순서대로-뿌리기 [밍구]

@@ -1,0 +1,235 @@
+doctype html
+html(lang='ko' dir='ltr')
+  head
+  meta(charset='utf-8')
+  title 스포라인 - #{title}
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='./stylesheets/style.css')
+  link(rel='stylesheet' href='http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css' type='text/css')
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+  script(src='http://code.jquery.com/ui/1.8.18/jquery-ui.min.js')
+body
+    .page-wrapper
+      // 전체를 감싸는 태그
+      .#
+        // 헤더
+        #top
+          div(id='back_1')
+            .back
+              div
+                a(href='LiveScore.html')
+                  img(src='imgs/back_3.png' width='50px')
+            #main-banner
+              h1.master-title 라이브 스코어
+            .favorite
+              div
+                a(href='#')
+                  img(src='imgs/share_1.png' width='50px')
+            #search
+              div
+                a(href='ElectiveGame.html')
+                  img(src='imgs/star_2.png' width='50px')
+        // 네비게이션
+        nav#main-navigation
+          .pull-left
+            .outer-menu
+              li.outer-menu-item
+                span.menu-title
+                  a(href='LiveScore.html') Today
+          //
+            <div class="pull-right">
+            <div class="search-bar">
+            <form>
+            <input type="text" class="input-search" />
+            <input type="submit" class="input-search-submit" value="검색" />
+            </form>
+            </div>
+            </div>
+        #date-live
+          div(class='tottenham_1')
+            a(href='#')
+              img(src='imgs/tottenham.jpeg' height='90px')
+            br
+            | 토트넘 홋스퍼
+            br
+            br
+            | 홈
+          div(class='Liverpool_1')
+            a(href='#')
+              img(src='imgs/liverpool.jpeg' height='90px')
+            br
+            | 리버풀
+            br
+            br
+            | 어웨이
+          .date-today
+            | 18/09/15
+            br
+            | 20:30
+            br
+            a(id='date-today_1') -&emsp; | &emsp;-
+      // 본문 제목
+      h2
+      .poster-div
+        | 광 고
+      br
+      // 본문  영역
+      #content.#
+        section
+          // 스코어 탑
+          #score-top
+            div(id='score-top_1')
+              div(class='bh_1')
+                a(href='DividendFlow.html') 배당흐름
+            div(id='score-top_2')
+              div(class='bh_2')
+                a(href='CmparativeAnalysis.html#') 비교분석
+            div(id='score-top_3')
+              div(class='bh_3')
+                a(href='LineUp.html') 라인업
+            div(id='score-top_4')
+              div(class='bh_4')
+                a(href='RankingTable.html') 순위표
+          // 배당흐름 테이블
+          table
+            thead
+            tbody
+              tr(class='tr_1')
+                tr(class='tr_12')
+                  td
+                    img(src='imgs/10bet.png' alt='' height='30px')
+                  td(class='bet_siteName')
+                    a.aClass(href='#') 10bet
+                    | 
+                  td(id='bet10_1') ⬇2.70
+                  td(id='bet10_2') ⬇3.50
+                  td(id='bet10_3') ⬇2.45
+                tr(class='tr_13')
+                  td
+                    img(src='imgs/12bet.png' alt='' height='30px')
+                  td(class='bet_siteName') 12bet
+                  td(id='bet12_1') ⬆2.76
+                  td(id='bet12_2') ⬆3.40
+                  td(id='bet12_3') ⬇2.41
+                tr(class='tr_14')
+                  td
+                    img(src='imgs/188bet.png' alt='' height='30px')
+                  td(class='bet_siteName') 188bet
+                  td(id='bet188_1') ⬆2.80
+                  td(id='bet188_2') ⬇3.60
+                  td(id='bet188_3') ⬆2.40
+                tr(class='tr_15')
+                  td
+                    img(src='imgs/1xbet.png' alt='' height='30px')
+                  td(class='bet_siteName') 1xbet
+                  td(id='xbet_1') ⬆2.81
+                  td(id='xbet_2') ⬆3.72
+                  td(id='xbet_3') ⬇2.58
+                tr(class='tr_16')
+                  td
+                    img(src='imgs/888sport.png' alt='' height='30px')
+                  td(class='bet_siteName') 888sport
+                  td(id='s888_1') ⬆2.70
+                  td(id='s888_2') ⬆3.65
+                  td(id='s888_3') ⬇2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+                tr(class='tr_17')
+                  td
+                    img(src='imgs/bah.png' alt='' height='30px')
+                  td(class='bet_siteName') b-a-h
+                  td(id='bah_1') ⬇2.70
+                  td(id='bah_2') ⬇3.56
+                  td(id='bah_3') ⬆2.45
+          // 본문 우측 영역
+          // <aside id="main-aside"></aside>
+          // 하단
+          div(class='bottom_bar')
+            a(href='LiveScore.html' class='bottom_button')
+              div(align='center')
+                img(src='imgs/soccerball.jpg' width='60px')
+                br
+                | 라이브스코어
+            a(href='Proto.html' class='bottom_button')
+              div(align='center')
+                img(src='imgs/soccerball.jpg' width='60px')
+                br
+                | 프로토
+            a(href='ElectiveGame.html' class='bottom_button')
+              div(align='center')
+                img(src='imgs/soccerball.jpg' width='60px')
+                br
+                | 선택경기
+            a(href='#' class='bottom_button')
+              div(align='center')
+                img(src='imgs/soccerball.jpg' width='60px')
+                br
+                | 커뮤니티
